@@ -36,7 +36,17 @@ def test_fn(evolve_fn, name, steps=1000, dt=1e-3, bodies=101, threads=1):
     f("r")
     f("v")
     f("F")
-    
+
+def test_cythfn(evolve_fn, name, steps=1000, dt=1e-3, bodies=101, threads=1):
+    print "\n"
+
+    w = lib.cyth.World(bodies, threads=threads, dt=dt)
+   
+    t0 = time.time()
+    evolve_fn(w, steps)
+    t1 = time.time()
+    print "{0} ({1}): {2} steps/sec".format(
+        name, threads, int(steps / (t1 - t0)))
 
 if __name__ == "__main__":
     # Single CPU only tests. 
@@ -45,6 +55,11 @@ if __name__ == "__main__":
     test_fn(lib.evolve_c_simple1, "C Simple 1", steps=32000)
     test_fn(lib.evolve_c_simple2, "C Simple 2", steps=32000)
     test_fn(lib.evolve_c_simd1, "C SIMD 1", steps=32000)
+
+    test_cythfn(lib.evolve_cyth, "Cython", steps=32000)
+    test_fn(lib.evolve_cythpr, "Cython PR", steps=32000)
+    test_fn(lib.evolve_cythpr1d, "Cython PR1d", steps=32000)
+    test_fn(lib.evolve_cythpr1dv, "Cython PR1dV", steps=32000)
     
     # Multi-threaded tests. 
     threads = 0

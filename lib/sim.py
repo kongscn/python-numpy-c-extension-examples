@@ -3,6 +3,7 @@ import copy
 import numpy as np
 
 import simple1, simple2, simd1, omp1, simdomp1
+import cyth, cythpr, cythpr1d, cythpr1dv
 
 
 class World(object):
@@ -90,3 +91,14 @@ def evolve_c_simdomp1(w, steps):
     """Evolve the world using the simdomp1 C module."""
     simdomp1.evolve(w.threads, w.dt, steps, w.N, w.m, w.r, w.v, w.F, w.Ft)
     
+def evolve_cyth(w, steps):
+    cyth.evolve(w, steps)
+
+def evolve_cythpr(w, steps):
+    cythpr.evolve(w, steps)
+
+def evolve_cythpr1d(w, steps):
+    cythpr1d.evolve(w, steps)
+
+def evolve_cythpr1dv(w, steps):
+    cythpr1dv.evolve(w, steps)
