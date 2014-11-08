@@ -1,11 +1,15 @@
 Cython Example
 ==============
 
-Recently I read a wonderful series of [posts](https://www.crumpington.com/blog/2014/10-19-high-performance-python-extensions-part-1.html) about using Python C API to speedup python scripts. But I'm not a C fun and I used [Cython]() to ease the work. So I wonder how much could I get using Cython instead of Python C API?
+Recently I read a wonderful series of [posts](https://www.crumpington.com/blog/2014/10-19-high-performance-python-extensions-part-1.html) about using Python C API to speedup python scripts. But I'm not a C fun and I used [Cython](http://cython.org/) to ease the work. So I wonder how much could I get using Cython instead of Python C API?
 
 On the last [post](https://www.crumpington.com/blog/2014/10-24-high-performance-python-extensions-part-3.html) of the series, I found a Cython version implemented by Matthew Honnibal [here](http://honnibal.wordpress.com/2014/10/21/writing-c-in-cython/). It is very fast but too *C++*. I hope I can write another but more *python* version.
 
-At last, I got an cython implementation that operates on numpy ndarrays. The speed is comparable to Matthew's work, but looks more streight forward. I put the result below with no explaintion, but `Cython` corresponds to Matthew's implementation and Cython PR is my *python-er* implementation.
+At last, I got an cython implementation that operates on numpy ndarrays. The speed is comparable to Matthew's work, but looks more streight forward. I put the result below with no explaintion, but `Cython` corresponds to Matthew's [implementation](https://github.com/kongscn/python-numpy-c-extension-examples/blob/master/src/cyth.pyx) and Cython PR is my *python-er* [implementation](https://github.com/kongscn/python-numpy-c-extension-examples/blob/master/src/cythpr.pyx).
+
+Also I tried the sample problem in both [Julia](http://julialang.org/) and [D lang](http://dlang.org/). These languages are expected to achieve similar performance  compared to C, but the implementations are maybe too naive to accomplish their top efficiency. These languages looks quite attractive and I spent hands of hours to read them but obviously not enough.
+
+I plan to write a post about this when have time.
 
 
 Cython PR (1): 8012 steps/sec
