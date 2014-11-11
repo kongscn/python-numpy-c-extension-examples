@@ -12,6 +12,11 @@ Also I tried the sample problem in both [Julia](http://julialang.org/) and [D la
 I plan to write a post about this when have time.
 
 
+## How to:
+
+Just run `run-tests.sh`.
+
+```
 Cython PR (1): 8012 steps/sec
     max(delta r): 0.0
     max(delta v): 8.7e-18
@@ -108,3 +113,4 @@ C SIMD OpenMP 1 (4): 6983 steps/sec
     max(delta r): 0.0
     max(delta v): 2.2e-16
     max(delta F): 7.1e-15
+```
